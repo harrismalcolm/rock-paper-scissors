@@ -1,6 +1,7 @@
 // console.log("Hello World");
 let humanScore = 0;
 let computerScore = 0;
+
 //Ask user for input: rock, paper, or scissors
 function getHumanChoice() {
     let choice = prompt("Choose rock, paper or scissors!");
@@ -23,33 +24,41 @@ function playRound(humanChoice, computerChoice) {
     
     if(playerChoice === 'paper' && computerChoice === 'rock') {
         console.log("You win! Paper beats Rock");
-        humanScore ++;
+        return humanScore ++;
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
         console.log("You win! Rock beats Scissors");
-        humanScore ++;
+        return humanScore ++;
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
         console.log("You win! Scissors beats Paper");
-        humanScore ++;
+        return humanScore ++;
     } else if(computerChoice === 'paper' && playerChoice === 'rock') {
         console.log("You Lose! Paper beats Rock");
-        computerScore ++;
+        return computerScore ++;
     } else if (computerChoice === 'rock' && playerChoice === 'scissors') {
         console.log("You Lose! Rock beats Scissors");
-        computerScore ++;
+        return computerScore ++;
     } else if (computerChoice === 'scissors' && playerChoice === 'paper') {
         console.log("You Lose! Scissors beats Paper");
-        computerScore ++;
+        return computerScore ++;
     } else {
         console.log("It's a Tie!!!");
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
 
-playRound(humanSelection, computerSelection);
-console.log(computerSelection);
+    for (let i = 1; i <= 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        
+        console.log(humanScore);
+        console.log(computerScore);
+    }
 
-//If user plays rock and computer plays scissors: user wins
-//If user plays scissors and computer plays paper: user wins
-//If user plays paper and computer plays rock: user wins
+    if(humanScore > computerScore) {
+        alert('You Win!!!');
+    } else {
+        alert('You Lose!!!');
+    }
+}
