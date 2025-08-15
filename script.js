@@ -1,4 +1,3 @@
-// console.log("Hello World");
 let humanScore = 0;
 let computerScore = 0;
 
@@ -14,7 +13,7 @@ function getComputerChoice() {
     let newArr = ["rock", "paper", "scissors"];
     let randomNum = Math.floor(Math.random() * 3);
     
-    return newArr[randomNum]
+    return newArr[randomNum];
 }
 //Stores computers input
 //Compares users and computers input
@@ -47,6 +46,9 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
 
+    // let humanScore = 0;
+    // let computerScore = 0;
+
     for (let i = 1; i <= 5; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
@@ -58,7 +60,9 @@ function playGame() {
 
     if(humanScore > computerScore) {
         alert('You Win!!!');
-    } else {
+    } else if (humanScore < computerScore){
         alert('You Lose!!!');
+    } else {
+        alert("It's a Tie!!!");
     }
 }
